@@ -3,22 +3,45 @@
 	<head>
 		<title>Base Converter</title>
 		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/custom-styles.css">
 	</head>
 	<body>
-		<form>
-			Number <input type="text" class="form-control" id="fromNum" placeholder="number" defaultvalue="123">
-			Base <input type="text" class="form-control" id="fromBase" placeholder="base">
-			
-			<input id="enter" type="button" value="Enter"/>
-		</form>
-		<div id="resultGrid">
-			<div id="result">
-				<p id="actualresult">num</p>
-				<form> 
-					Base <input type="text" class="form-control" id="toBase" placeholder ="base">
-				</form>
+		<div class="container">
+			<h1>Base Converter</h1>
+			<div id="calc-section">
+				<div class="row card">
+					<div class="col-md-3">
+						<span>Base</span> 
+						<input type="text" class="form-control" id="fromBase" placeholder="10 by default">	
+					</div>
+					<div class="col-md-9">
+						<span>Number</span> 
+						<input type="text" class="form-control" id="fromNum" placeholder="Any number to convert">
+					</div>
+				</div>
 			</div>
-		</div>
+			<div class=row id="separator"></div>
+			<div id="result-section">
+				<div class="row card">
+					<div class="col-md-3">
+						<span>Convert to Base</span>
+						<input type="text" class="form-control" id="toBase" placeholder="eg. 2, 3, 4, 5, 6...">
+					</div>
+					<div class="col-md-9">
+						<span>Result:</span> 
+						<p class="result" id="actualresult">Your Result here</p>
+					</div>
+				</div>
+				<!--<div id="resultGrid">
+					<div id="result">
+						<p id="actualresult">num</p>
+					</div>
+				</div>-->
+			</div>
+			<div id='button-section'>
+				<input id="enter" type="button" value="Convert"/>	
+				<input id="add" type="button" value="Add Card">
+			</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="js/base-converter.js"></script>
 	</body>
