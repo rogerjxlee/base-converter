@@ -15,19 +15,6 @@ $(function(){
 	}
 
 	function addResultCard() {
-		var card = $(document.createElement("div")).append(
-			$(document.createElement("form"))
-				.addClass("form-inline")
-				.append($(document.createElement("label"))
-					.html("Number"))
-				.append($(document.createElement("div"))
-					.addClass("form-control")
-					.html("num"))
-				.append($(document.createElement("label"))
-					.html("Base"))
-				.append($(document.createElement("input"))
-					.addClass("form-control")
-					.attr("placeholder", "test")));
-		$('#resultGrid').append(card);
+		$('#result-card').clone().appendTo('#result-section');
 	}
 });
