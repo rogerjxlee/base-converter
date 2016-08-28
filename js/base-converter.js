@@ -1,6 +1,6 @@
 $(function(){
 	$('#enter').click(changeBase);
-
+	$('#add').click(addResultCard);
 	function changeBase() {
 		var fromNum = $('#fromNum').val();
 		var fromBase = $('#fromBase').val();
@@ -11,11 +11,23 @@ $(function(){
 	}
 
 	function printResult(toNum) {
-		$('#actualresult').html(toNum); 
+		$('#result').html(toNum); 
+	}
+
+	function addResultCard() {
+		var card = $(document.createElement("div")).append(
+			$(document.createElement("form"))
+				.addClass("form-inline")
+				.append($(document.createElement("label"))
+					.html("Number"))
+				.append($(document.createElement("div"))
+					.addClass("form-control")
+					.html("num"))
+				.append($(document.createElement("label"))
+					.html("Base"))
+				.append($(document.createElement("input"))
+					.addClass("form-control")
+					.attr("placeholder", "test")));
+		$('#resultGrid').append(card);
 	}
 });
-
-
-
-
-

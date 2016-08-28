@@ -5,20 +5,29 @@
 		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	</head>
 	<body>
-		<form>
-			Number <input type="text" class="form-control" id="fromNum" placeholder="number" defaultvalue="123">
-			Base <input type="text" class="form-control" id="fromBase" placeholder="base">
-			
-			<input id="enter" type="button" value="Enter"/>
-		</form>
+		<div class="inputCard">
+			<form class="form-inline">
+				<label for="fromNum">Number</label>
+				<input type="text" class="form-control" id="fromNum" placeholder="number" defaultvalue="123">
+				<label for="fromBase">Base</label>
+				<input type="text" class="form-control" id="fromBase" placeholder="base" value="10">
+				
+				<input id="enter" type="button" class="btn btn-primary" value="Enter"/>
+			</form>
+		</div>
 		<div id="resultGrid">
-			<div id="result">
-				<p id="actualresult">num</p>
-				<form> 
-					Base <input type="text" class="form-control" id="toBase" placeholder ="base">
+			<div class="resultCard">				
+				<form class="form-inline"> 
+					<label for="result">Number</label>
+					<div class="form-control" id="result">num</div>
+					<label for="toBase">Base</label>
+					<input type="text" class="form-control" id="toBase" placeholder ="base">
 				</form>
 			</div>
 		</div>
+		<form>
+			<input id="add" type="button" value="add"/>
+		</form>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="js/base-converter.js"></script>
 	</body>
