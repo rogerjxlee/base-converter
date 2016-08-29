@@ -18,6 +18,14 @@ $(function(){
 	// function changeBaseAlt(from, fromBase, toBase) {
 	// 	return parseInt(from, fromBase).toString(toBase);
 	// }
+
+   /**
+   	* converts a number from one base to another
+   	* only supports bases between 2 and 36
+	* @param {String} from
+	* @param {Number} fromBase
+	* @param {Number} toBase
+	*/
 	function changeBase(from, fromBase, toBase) {
 		var value = 0;
 		for (i = 0; i < from.length; i++) {
@@ -34,7 +42,6 @@ $(function(){
 			value %= Math.pow(toBase, i);
 			i--;
 		}
-		console.log(to);
 		return to.toLowerCase();
 	}
 	function valToChar(val) {
