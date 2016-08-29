@@ -1,4 +1,7 @@
 $(function() {
+	$('#bottom').height(function(index, height) {
+    	return window.innerHeight - $(this).offset().top;
+	});
 	$('#enter').click(calculateResults);
 	$('#add').click(addResultCard);
 	$('.close').click(close);
