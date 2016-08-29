@@ -1,6 +1,4 @@
-var numCards = 3;
-
-$(function(){
+$(function() {
 	$('#enter').click(calculateResults);
 	$('#add').click(addResultCard);
 	$('.close').click(close);
@@ -62,11 +60,11 @@ $(function(){
 
 	function addResultCard() {
 		// if there was only card before 'add' was clicked, return the close button back to that card
+		var numCards = $('#results-section').children('.result-card').length;
 		if (numCards == 1) {
 			$('.result-card').find('button').show();
 		}
-		numCards += 1;		
-		var newCard = $('#results-section').children('.row').first().clone();
+		var newCard = $('#results-section').children('.row').last().clone();
 		newCard.find('button').on('click', close);
 		newCard.hide().appendTo('#results-section').fadeIn(75);
 		newCard.appendTo('#results-section');
@@ -75,12 +73,15 @@ $(function(){
 	function close() {
 		var cardToRemove = $(this).parent();
 		cardToRemove.fadeOut(75, function() {
-			cardToRemove.css({"visibility":"hidden",display:'block'}).slideUp(250);
-		});
-		numCards -= 1;
-		//if only one card remains, hide the close button for that card
-		if (numCards == 1) {
-			$('.result-card').find('button').hide();
-		}
+			cardToRemove.css({"visibility":"hidden",display:'block'}).slideUp(250, 
+				function() {
+					cardToRemove.remove();
+					var numCards = $('#results-section').children('.result-card').length;
+					//if only one card remains, hide the close button for that card
+					if (numCards == 1) {
+						$('.result-card').find('button').hide();
+					}
+				});
+		});		
 	}
 });
