@@ -22,44 +22,55 @@
 			</div>
 
 			<div class=row id="separator"></div>
-
 			<div id="results-section">
-				<div class="row card">
+				<div class="row card result-card" id="result-card">
+					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<div class="col-md-3">
 						<label for="fromBase">Convert to Base</label>
 						<input type="text" class="form-control toBase" value="2">
 					</div>
 					<div class="col-md-9">
-						<label for="fromNum">Number</label>
-						<p class="toNum">Your Result here</p>
+						<p>Result:</p> 
+						<p class="toNum" id="result">Your Result here</p>
 					</div>
-				</div>
-				<div class="row card">
+				</div>						
+				<div class="row card result-card" id="result-card">
+					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<div class="col-md-3">
 						<label for="fromBase">Convert to Base</label>
 						<input type="text" class="form-control toBase" value="8">
 					</div>
 					<div class="col-md-9">
-						<label for="fromNum">Number</label>
-						<p class="toNum">Your Result here</p>
+						<p>Result:</p> 
+						<p class="toNum" id="result">Your Result here</p>
 					</div>
 				</div>
-				<div class="row card">
+				<div class="row card result-card" id="result-card">
+					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<div class="col-md-3">
 						<label for="fromBase">Convert to Base</label>
 						<input type="text" class="form-control toBase" value="16">
 					</div>
 					<div class="col-md-9">
-						<label for="fromNum">Number</label>
-						<p class="toNum">Your Result here</p>
+						<p>Result:</p> 
+						<p class="toNum" id="result">Your Result here</p>
 					</div>
 				</div>
 			</div>
 			<div id='button-section'>
-				<input id="enter" type="button" class="btn btn-primary btn-lg" value="Convert"/>	
-				<input id="add" type="button" class="btn btn-primary btn-lg" value="Add Card">
+				<button class="btn btn-default btn-success" id="enter" type="button">Convert</button>
+				<button class="btn btn-default btn-primary" id="add" type="button">Add Card</button>
 			</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="js/base-converter.js"></script>
 	</body>
 </html>	
+
+
+
+
+
+
+
+
+

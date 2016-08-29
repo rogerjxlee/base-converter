@@ -3,15 +3,18 @@ body {
 }
 
 .card {
+	position: relative;
 	padding-top: 5px;
 	padding-bottom: 15px;
 	margin-left: 2px;
 	margin-right: 2px;
 	border: 1px solid lightgrey;
 	border-radius: 5px;
+	box-shadow: 3px 3px 3px #eee;
 }
 
-.result{
+.result-card {
+	margin-bottom: 20px;
 }
 
 #separator {
@@ -22,5 +25,15 @@ body {
 }
 
 #button-section {
-	text-align: center;
+	position: fixed;
+	left: 50%;
+	bottom: 0%;
+	transform: translate(-50%, -50%);
+}
+
+button.close {
+	float: none;
+	position: absolute;
+	right: 5px;
+	z-index: 1;
 }
