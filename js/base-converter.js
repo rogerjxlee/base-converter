@@ -68,11 +68,15 @@ $(function(){
 		numCards += 1;		
 		var newCard = $('#results-section').children('.row').first().clone();
 		newCard.find('button').on('click', close);
+		newCard.hide().appendTo('#results-section').fadeIn(75);
 		newCard.appendTo('#results-section');
 	}
 
 	function close() {
-		$(this).parent().remove();
+		var cardToRemove = $(this).parent();
+		cardToRemove.fadeOut(75, function() {
+			cardToRemove.css({"visibility":"hidden",display:'block'}).slideUp(250);
+		});
 		numCards -= 1;
 		//if only one card remains, hide the close button for that card
 		if (numCards == 1) {
