@@ -22,42 +22,54 @@
 			</div>
 			<div class=row id="separator"></div>
 			<div id="result-section">
-				<div class="row card" id="result-card">
+				<div class="row card result-card" id="result-card">
+					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<div class="col-md-3">
 						<span>Convert to Base</span>
 						<input type="text" class="form-control" id="toBase" value="2">
 					</div>
 					<div class="col-md-9">
-						<span>Result:</span> 
+						<p>Result:</p> 
 						<p class="result" id="result">Your Result here</p>
 					</div>
 				</div>
-				<div class="row card" id="result-card">
+				<div class="row card result-card" id="result-card">
+					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<div class="col-md-3">
 						<span>Convert to Base</span>
 						<input type="text" class="form-control" id="toBase" value="8">
 					</div>
 					<div class="col-md-9">
-						<span>Result:</span> 
+						<p>Result:</p> 
 						<p class="result" id="actualresult">Your Result here</p>
 					</div>
 				</div>
-				<div class="row card" id="result-card">
+				<div class="row card result-card" id="result-card">
+					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<div class="col-md-3">
 						<span>Convert to Base</span>
 						<input type="text" class="form-control" id="toBase" value="16">
 					</div>
 					<div class="col-md-9">
-						<span>Result:</span> 
+						<p>Result:</p> 
 						<p class="result" id="actualresult">Your Result here</p>
 					</div>
 				</div>
 			</div>
 			<div id='button-section'>
-				<input id="enter" type="button" value="Convert"/>	
-				<input id="add" type="button" value="Add Card">
+				<button class="btn btn-default btn-success" id="enter" type="button">Convert</button>
+				<button class="btn btn-default btn-primary" id="add" type="button">Add Card</button>
 			</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="js/base-converter.js"></script>
 	</body>
 </html>	
+
+
+
+
+
+
+
+
+

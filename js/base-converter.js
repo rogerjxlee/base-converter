@@ -1,6 +1,11 @@
+var numCards = 3;
+
 $(function(){
 	$('#enter').click(changeBase);
 	$('#add').click(addResultCard);
+	$('.close').click(close);
+
+
 	function changeBase() {
 		var fromNum = $('#fromNum').val();
 		var fromBase = $('#fromBase').val();
@@ -15,6 +20,22 @@ $(function(){
 	}
 
 	function addResultCard() {
-		$('#result-card').clone().appendTo('#result-section');
+		// if there was only card before 'add' was clicked, return the close button back to that card
+		if (numCards == 1) {
+			$('.result-card').find('button').show();
+		}
+		numCards += 1;		
+		var newCard = $('#result-card').clone();
+		newCard.find('button').on('click', close);
+		newCard.appendTo('#result-section');
+	}
+
+	function close() {
+		$(this).parent().remove();
+		numCards -= 1;
+		//if only one card remains, hide the close button for that card
+		if (numCards == 1) {
+			$('.result-card').find('button').hide();
+		}
 	}
 });
