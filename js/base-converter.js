@@ -65,6 +65,7 @@ $(function() {
 			$('.result-card').find('button').show();
 		}
 		var newCard = $('#results-section').children('.row').last().clone();
+		newCard.find('.toBase').removeAttr('value');
 		newCard.find('button').on('click', close);
 		newCard.hide().appendTo('#results-section').fadeIn(75);
 		newCard.appendTo('#results-section');
