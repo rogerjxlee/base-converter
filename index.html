@@ -8,51 +8,52 @@
 	<body>
 		<div class="container">
 			<h1>Base Converter</h1>
-			<div id="calc-section">
+			<div id="input-section">
 				<div class="row card">
 					<div class="col-md-3">
-						<span>Base</span> 
-						<input type="text" class="form-control" id="fromBase" placeholder="10 by default" value="10">	
+						<label for="fromBase">Base</label>
+						<input type="text" class="form-control" id="fromBase" value="10">
 					</div>
 					<div class="col-md-9">
-						<span>Number</span> 
+						<label for="fromNum">Number</label>
 						<input type="text" class="form-control" id="fromNum" placeholder="Any number to convert">
 					</div>
 				</div>
 			</div>
+
 			<div class=row id="separator"></div>
-			<div id="result-section">
+			<div id="results-section">
 				<div class="row card result-card" id="result-card">
 					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<div class="col-md-3">
-						<span>Convert to Base</span>
-						<input type="text" class="form-control" id="toBase" value="2">
+						<label for="fromBase">Convert to Base</label>
+						<input type="text" class="form-control toBase" value="2">
 					</div>
 					<div class="col-md-9">
 						<p>Result:</p> 
-						<p class="result" id="result">Your Result here</p>
+						<p class="toNum" id="result">Your Result here</p>
+					</div>
+				</div>						
+				<div class="row card result-card" id="result-card">
+					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<div class="col-md-3">
+						<label for="fromBase">Convert to Base</label>
+						<input type="text" class="form-control toBase" value="8">
+					</div>
+					<div class="col-md-9">
+						<p>Result:</p> 
+						<p class="toNum" id="result">Your Result here</p>
 					</div>
 				</div>
 				<div class="row card result-card" id="result-card">
 					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<div class="col-md-3">
-						<span>Convert to Base</span>
-						<input type="text" class="form-control" id="toBase" value="8">
+						<label for="fromBase">Convert to Base</label>
+						<input type="text" class="form-control toBase" value="16">
 					</div>
 					<div class="col-md-9">
 						<p>Result:</p> 
-						<p class="result" id="actualresult">Your Result here</p>
-					</div>
-				</div>
-				<div class="row card result-card" id="result-card">
-					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<div class="col-md-3">
-						<span>Convert to Base</span>
-						<input type="text" class="form-control" id="toBase" value="16">
-					</div>
-					<div class="col-md-9">
-						<p>Result:</p> 
-						<p class="result" id="actualresult">Your Result here</p>
+						<p class="toNum" id="result">Your Result here</p>
 					</div>
 				</div>
 			</div>
