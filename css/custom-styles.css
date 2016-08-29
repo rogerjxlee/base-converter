@@ -3,24 +3,32 @@ html {
 }
 body {
 	height: 100%;
+	background-image: url(http://i.imgur.com/GlHQ5vO.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 }
 
 h1 {
 	text-align: center;
+	font-family: 'Muli', sans-serif;
+	font-weight: 900;
+	text-transform: lowercase;
+	color: #E18639;	
 }
 .top {
-	background-color: #82C649;
+	background-color: rgba(69,95,117,0.5);
 	display: inline-block;
 	width: 100%;
 	padding-bottom: 20px;
 }
 .bottom {
-	background-color: #9DEA5E;
+	background-color: rgba(173,209,195,0.5);	
 	padding-top: 20px;
 	width: 100%;
 }
 
 .card {
+	background-color: white;
 	position: relative;
 	padding-top: 5px;
 	padding-bottom: 15px;
@@ -28,13 +36,16 @@ h1 {
 	margin-right: 2px;
 	border: 1px solid lightgrey;
 	border-radius: 5px;
-	box-shadow: 3px 3px 3px #eee;
+	opacity: 1;
+	/*box-shadow: 3px 3px 3px #eee;*/
 }
 
 .result-card {
 	margin-bottom: 20px;
 }
-
+.toNum {
+	overflow:hidden;
+}
 #footer-buffer {
 	margin: 75px;
 }

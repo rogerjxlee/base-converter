@@ -1,16 +1,18 @@
 $(function() {
 	$('.bottom').height(function(index, height) {
-    	return window.innerHeight - $(this).offset().top - parseInt($(this).css('padding-top'));
+    	return $(document).height() - $(this).offset().top - parseInt($(this).css('padding-top'));
     });
 	$(window).on('resize', function() {
 		$('.bottom').height(function(index, height) {
-    		return window.innerHeight - $(this).offset().top - parseInt($(this).css('padding-top'));
+    		return $(document).height() - $(this).offset().top - parseInt($(this).css('padding-top'));
     	});
 	});
 	$('#enter').click(calculateResults);
 	$('#add').click(addResultCard);
 	$('.close').click(close);
-
+	function extendDown() {
+		
+	}
 	function calculateResults() {
 		var results = $('#results-section').children().each(calculateResult);
 	}
@@ -21,7 +23,7 @@ $(function() {
 		var toNum = changeBase(fromNum, fromBase, toBase);
 		$(this).find('.toNum').html(toNum);
 	}
-	// function changeBaseAlt(from, fromBase, toBase) {
+	// function changeBase(from, fromBase, toBase) {
 	// 	return parseInt(from, fromBase).toString(toBase);
 	// }
 
@@ -33,19 +35,30 @@ $(function() {
 	* @param {Number} toBase
 	*/
 	function changeBase(from, fromBase, toBase) {
-		var value = 0;
-		for (i = 0; i < from.length; i++) {
-			value += charToVal(from.charAt(from.length - 1 - i)) * Math.pow(fromBase, i);
+		if (fromBase < 2 || fromBase > 36 || toBase < 2 || toBase > 36) {
+			return NaN;
 		}
+		var value = parseNum(from, fromBase);
+		return printNum(value, toBase);
+		
+	}
+	function parseNum(num, base) {
+		var value = 0;
+		for (i = 0; i < num.length; i++) {
+			value += charToVal(num.charAt(num.length - 1 - i)) * Math.pow(base, i);
+		}
+		return value;
+	}
+	function printNum(value, base) {
 		var i = 0;
-		while(value > Math.pow(toBase, i)) {
+		while(value > Math.pow(base, i)) {
 			i++;
 		}
 		i--;
 		var to = "";
 		while(i >= 0) {
-			to += valToChar(Math.floor(value / Math.pow(toBase, i)));
-			value %= Math.pow(toBase, i);
+			to += valToChar(Math.floor(value / Math.pow(base, i)));
+			value %= Math.pow(base, i);
 			i--;
 		}
 		return to.toLowerCase();
@@ -58,7 +71,7 @@ $(function() {
 	}
 	function charToVal(char) {
 		var code = char.toUpperCase().charCodeAt(0);
-		if (code >= 55 && code <= 90) {
+		if (code >= 65 && code <= 90) {
 			return code - 55;
 		}
 		else if (code >= 48 && code <= 57) {
@@ -74,6 +87,7 @@ $(function() {
 		}
 		var newCard = $('#results-section').children('.row').last().clone();
 		newCard.find('.toBase').removeAttr('value');
+		newCard.find('.toNum').empty();
 		newCard.find('button').on('click', close);
 		newCard.hide().appendTo('#results-section').fadeIn(75);
 		newCard.appendTo('#results-section');
