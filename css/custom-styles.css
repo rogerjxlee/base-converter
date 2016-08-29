@@ -1,7 +1,15 @@
 body {
 
 }
-
+h1 {
+	text-align: center;
+}
+.top {
+	/*background-color: #82C649;*/
+}
+.bottom {
+	/*background-color: #9DEA5E;*/
+}
 .card {
 	position: relative;
 	padding-top: 5px;
