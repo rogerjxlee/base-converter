@@ -27,11 +27,14 @@ $(function(){
 		numCards += 1;		
 		var newCard = $('#result-card').clone();
 		newCard.find('button').on('click', close);
-		newCard.appendTo('#result-section');
+		newCard.hide().appendTo('#result-section').fadeIn(75);
 	}
 
 	function close() {
-		$(this).parent().remove();
+		var cardToRemove = $(this).parent();
+		cardToRemove.fadeOut(75, function() {
+			cardToRemove.css({"visibility":"hidden",display:'block'}).slideUp(250);
+		});
 		numCards -= 1;
 		//if only one card remains, hide the close button for that card
 		if (numCards == 1) {
