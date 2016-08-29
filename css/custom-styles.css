@@ -4,24 +4,22 @@ html {
 body {
 	height: 100%;
 }
-<<<<<<< HEAD
+
 h1 {
 	text-align: center;
 }
 .top {
-	/*background-color: #82C649;*/
-	display:inline-block;
+	background-color: #82C649;
+	display: inline-block;
 	width: 100%;
 	padding-bottom: 20px;
 }
 .bottom {
-	/*background-color: #9DEA5E;*/
+	background-color: #9DEA5E;
 	padding-top: 20px;
 	width: 100%;
 }
-=======
 
->>>>>>> 90205375c397f7208581f9a46ad18c69db3954cc
 .card {
 	position: relative;
 	padding-top: 5px;
@@ -35,13 +33,6 @@ h1 {
 
 .result-card {
 	margin-bottom: 20px;
-}
-
-#separator {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	border: 3px solid lightgrey;
-	border-radius: 5px;
 }
 
 #footer-buffer {

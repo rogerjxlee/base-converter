@@ -1,6 +1,11 @@
 $(function() {
-	$('#bottom').height(function(index, height) {
-    	return window.innerHeight - $(this).offset().top;
+	$('.bottom').height(function(index, height) {
+    	return window.innerHeight - $(this).offset().top - parseInt($(this).css('padding-top'));
+    });
+	$(window).on('resize', function() {
+		$('.bottom').height(function(index, height) {
+    		return window.innerHeight - $(this).offset().top - parseInt($(this).css('padding-top'));
+    	});
 	});
 	$('#enter').click(calculateResults);
 	$('#add').click(addResultCard);
