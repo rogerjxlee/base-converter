@@ -40,16 +40,33 @@ h1 {
 	/*box-shadow: 3px 3px 3px #eee;*/
 }
 
-.result-card {
+.entry {
 	margin-bottom: 20px;
 }
-.toNum {
-	overflow:hidden;
+.number {
+	overflow: hidden;
 }
 #footer-buffer {
 	margin: 75px;
 }
-
+.input-group {
+	width: 100%;
+}
+.input-group-addon {
+	text-align: left;
+}
+.input-group .col-md-2 {
+	width: 16.66666667%;
+} 
+.input-group .col-md-10 {
+	width: 83.33333333%;
+}
+.input-group-btn .btn {
+	border-left-color: rgb(204, 204, 204);
+	border-right-color: rgb(204, 204, 204);
+	border-top-color: rgb(204, 204, 204);
+	border-bottom-color: rgb(204, 204, 204);
+}
 #button-section {
 	position: fixed;
 	left: 50%;
@@ -57,19 +74,15 @@ h1 {
 	transform: translate(-50%, -50%);
 }
 
-#button-secion, .btn {
+#button-section .btn {
 	width: 150px;
 	height: 40px;
 }
 
-#button-buffer {
-	margin: 10px;
-}
-
 button.close {
 	float: none;
-	position: absolute;
-	right: 5px;
+	/*position: absolute;*/
+	/*right: 5px;*/
 	z-index: 1;
 }
 

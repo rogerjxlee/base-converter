@@ -7,21 +7,32 @@ $(function() {
     		return $(document).height() - $(this).offset().top - parseInt($(this).css('padding-top'));
     	});
 	});
-	$('#enter').click(calculateResults);
-	$('#add').click(addResultCard);
+	$('.entry').find('.base').focus(
+		function(){
+			var previousBase = $(this).val();
+			$(this).data("previousBase", previousBase);
+		}).change(calculateResults);
+	$('.entry').find('.number').change(calculateResults);
+	$('#add').click(addEntry);
 	$('.close').click(close);
-	function extendDown() {
-		
-	}
+
 	function calculateResults() {
-		var results = $('#results-section').children().each(calculateResult);
+		var fromBase = $(this).parent().children('.base').val();
+		if ($(this).hasClass('base')) {
+			fromBase = $(this).data("previousBase") ;
+		}
+		var fromNum = $(this).parent().children('.number').val();
+		$(this).parent().parent().children().each(function() {
+			var to = $(this);
+			calculateResult(fromBase, fromNum, to)});
 	}
-	function calculateResult() {
-		var fromNum = $('#fromNum').val();
-		var fromBase = $('#fromBase').val();
-		var toBase = $(this).find('.toBase').val();
+	function calculateResult(fromBase, fromNum, to) {
+		if ($(fromBase).parent().is($(to))) {
+			return;
+		}
+		var toBase = $(to).find('.base').val();
 		var toNum = changeBase(fromNum, fromBase, toBase);
-		$(this).find('.toNum').html(toNum);
+		$(to).find('.number').val(toNum);
 	}
 	// function changeBase(from, fromBase, toBase) {
 	// 	return parseInt(from, fromBase).toString(toBase);
@@ -68,8 +79,8 @@ $(function() {
 			return String.fromCharCode(val + 55);
 		}
 			return val.toString();
-	}
-	function charToVal(char) {
+	
+}	function charToVal(char) {
 		var code = char.toUpperCase().charCodeAt(0);
 		if (code >= 65 && code <= 90) {
 			return code - 55;
@@ -79,30 +90,36 @@ $(function() {
 		}
 	}
 
-	function addResultCard() {
+	function addEntry() {
 		// if there was only card before 'add' was clicked, return the close button back to that card
-		var numCards = $('#results-section').children('.result-card').length;
-		if (numCards == 1) {
-			$('.result-card').find('button').show();
+		var numEntries = $('#entries').children('.entry').length;
+		if (numEntries == 1) {
+			$('.entry').find('button').show();
 		}
-		var newCard = $('#results-section').children('.row').last().clone();
-		newCard.find('.toBase').removeAttr('value');
-		newCard.find('.toNum').empty();
-		newCard.find('button').on('click', close);
-		newCard.hide().appendTo('#results-section').fadeIn(75);
-		newCard.appendTo('#results-section');
+		var newEntry = $('#entries').children('.entry').last().clone();
+		newEntry.find('.base').removeAttr('value');
+		newEntry.find('.number').removeAttr('value');
+		newEntry.find('button').on('click', close);
+		newEntry.hide().appendTo('#entries').fadeIn(75);
+		newEntry.appendTo('#entries');
+		$(newEntry).find('.base').focus(
+		function(){
+			var previousBase = $(this).val();
+			$(this).data("previousBase", previousBase);
+		}).change(calculateResults);
+		$(newEntry).find('.number').change(calculateResults);
 	}
 
 	function close() {
-		var cardToRemove = $(this).parent();
-		cardToRemove.fadeOut(75, function() {
-			cardToRemove.css({"visibility":"hidden",display:'block'}).slideUp(250, 
+		var entryToRemove = $(this).parent().parent();
+		entryToRemove.fadeOut(75, function() {
+			entryToRemove.css({"visibility":"hidden",display:'block'}).slideUp(250, 
 				function() {
-					cardToRemove.remove();
-					var numCards = $('#results-section').children('.result-card').length;
+					entryToRemove.remove();
+					var numEntries = $('#results-section').children('.result-card').length;
 					//if only one card remains, hide the close button for that card
-					if (numCards == 1) {
-						$('.result-card').find('button').hide();
+					if (numEntries == 1) {
+						$('.entry').find('button').parent().hide();
 					}
 				});
 		});		

@@ -10,65 +10,46 @@
 		<div class="top">
 			<h1>Base Converter</h1>
 			<div class="container">
-				<div id="input-section">
-						<div class="row card">
-							<div class="col-md-3">
-								<label for="fromBase">Base</label>
-								<input type="text" class="form-control" id="fromBase" value="10">
-							</div>
-							<div class="col-md-9">
-								<label for="fromNum">Number</label>
-								<input type="text" class="form-control" id="fromNum" placeholder="Any number to convert">
-							</div>
-						</div>
-				</div>
+
 			</div>
 		</div>
 
 		<div class="bottom">
 			<div class="container">
-				<div id="results-section">
-					<div class="row card result-card" id="result-card">					
-						<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<div class="col-md-3">
-							<label>Convert to Base</label>
-							<input type="text" class="form-control toBase" value="2">
+				<div id="entries">
+						<div class="entry input-group">
+							<input class="base form-control input-group-addon col-md-2" type="text" placeholder="base" value="2">
+							<input class="number form-control col-md-10" type="text">
+							<span class ="input-group-btn">
+								<button class="btn btn-secondary" type="button" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</span>
 						</div>
-						<div class="col-md-9">
-							<label>Result</label>
-							<div class="toNum form-control" disabled></div>
-						</div>					
-					</div>
-					<div class="row card result-card" id="result-card">					
-						<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<div class="col-md-3">
-							<label>Convert to Base</label>
-							<input type="text" class="form-control toBase" value="8">
+						<div class="entry input-group">
+							<input class="base form-control input-group-addon col-md-2" type="text" placeholder="base" value="8">
+							<input class="number form-control col-md-10" type="text">
+							<span class ="input-group-btn">
+								<button class="btn btn-secondary" type="button" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</span>
 						</div>
-						<div class="col-md-9">
-							<label>Result</label>
-							<div class="toNum form-control" disabled></div>
-						</div>					
-					</div>	
-					<div class="row card result-card" id="result-card">					
-						<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<div class="col-md-3">
-							<label>Convert to Base</label>
-							<input type="text" class="form-control toBase" value="16">
+						<div class="entry input-group">
+							<input class="base form-control input-group-addon col-md-2" type="text" placeholder="base" value="10">
+							<input class="number form-control col-md-10" type="text">
+							<span class ="input-group-btn">
+								<button class="btn btn-secondary" type="button" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</span>
 						</div>
-						<div class="col-md-9">
-							<label>Result</label>
-							<div class="toNum form-control" disabled></div>
-						</div>					
-					</div>				
+						<div class="entry input-group">
+							<input class="base form-control input-group-addon col-md-2" type="text" placeholder="base" value="16">
+							<input class="number form-control col-md-10" type="text">
+							<span class ="input-group-btn">
+								<button class="btn btn-secondary" type="button" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</span>
+						</div>
 				</div>
 			</div>			
 			<div id="footer-buffer"></div>
 			<div id='button-section'>
-				<button class="btn btn-success" id="enter" type="button">Convert</button>
-				<span id="button-buffer"></span>
-				<button class="btn btn-primary" id="add" type="button">Add Card</button>
-				<div id='stupid' style="text-align: center; color: #E18639; font-weight:900">procedurally generated white space below!</div>
+				<button class="btn btn-primary" id="add" type="button">Add</button>
 			</div>
 		</div>
 	</body>
