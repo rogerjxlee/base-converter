@@ -97,8 +97,8 @@ $(function() {
 			$('.entry').find('button').show();
 		}
 		var newEntry = $('#entries').children('.entry').last().clone();
-		newEntry.find('.base').removeAttr('value');
-		newEntry.find('.number').removeAttr('value');
+		newEntry.find('.base').val('');
+		newEntry.find('.number').val('');
 		newEntry.find('button').on('click', close);
 		newEntry.hide().appendTo('#entries').fadeIn(75);
 		newEntry.appendTo('#entries');
