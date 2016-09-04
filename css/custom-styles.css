@@ -80,10 +80,10 @@ h1 {
 	height: 40px;
 }
 
-button.close {
+/*button.close {
 	float: none;
-	/*position: absolute;*/
+	position: absolute;
 	/*right: 5px;*/
 	z-index: 1;
-}
+}*/
 

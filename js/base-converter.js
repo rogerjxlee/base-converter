@@ -14,7 +14,7 @@ $(function() {
 		}).change(calculateResults);
 	$('.entry').find('.number').change(calculateResults);
 	$('#add').click(addEntry);
-	$('.close').click(close);
+	$('.close-btn').click(close);
 
 	function calculateResults() {
 		var fromBase = $(this).parent().children('.base').val();
@@ -27,11 +27,19 @@ $(function() {
 			calculateResult(fromBase, fromNum, to)});
 	}
 	function calculateResult(fromBase, fromNum, to) {
+		console.log($(fromBase).parent().is($(to)));
 		if ($(fromBase).parent().is($(to))) {
 			return;
 		}
 		var toBase = $(to).find('.base').val();
-		var toNum = changeBase(fromNum, fromBase, toBase);
+		var toNum;
+		try {
+			toNum = changeBase(fromNum, fromBase, toBase);
+		}
+		catch (err) {
+			toNum = err;
+		}
+		console.log(toNum);
 		$(to).find('.number').val(toNum);
 	}
 	// function changeBase(from, fromBase, toBase) {
@@ -56,13 +64,20 @@ $(function() {
 	function parseNum(num, base) {
 		var value = 0;
 		for (i = 0; i < num.length; i++) {
-			value += charToVal(num.charAt(num.length - 1 - i)) * Math.pow(base, i);
+			var digitValue = charToVal(num.charAt(num.length - 1 - i));
+			if (digitValue >= base) {
+				throw "Invalid number for this base";
+			}
+			value += digitValue * Math.pow(base, i);
 		}
 		return value;
 	}
 	function printNum(value, base) {
+		if (value == 0) {
+			return 0;
+		}
 		var i = 0;
-		while(value > Math.pow(base, i)) {
+		while(value >= Math.pow(base, i)) {
 			i++;
 		}
 		i--;
@@ -72,6 +87,7 @@ $(function() {
 			value %= Math.pow(base, i);
 			i--;
 		}
+		console.log(to);
 		return to.toLowerCase();
 	}
 	function valToChar(val) {
@@ -94,7 +110,7 @@ $(function() {
 		// if there was only card before 'add' was clicked, return the close button back to that card
 		var numEntries = $('#entries').children('.entry').length;
 		if (numEntries == 1) {
-			$('.entry').find('button').show();
+			$('.entry').find('button').parent().show();
 		}
 		var newEntry = $('#entries').children('.entry').last().clone();
 		newEntry.find('.base').val('');
@@ -116,7 +132,7 @@ $(function() {
 			entryToRemove.css({"visibility":"hidden",display:'block'}).slideUp(250, 
 				function() {
 					entryToRemove.remove();
-					var numEntries = $('#results-section').children('.result-card').length;
+					var numEntries = $('#entries').children('.entry').length;
 					//if only one card remains, hide the close button for that card
 					if (numEntries == 1) {
 						$('.entry').find('button').parent().hide();
